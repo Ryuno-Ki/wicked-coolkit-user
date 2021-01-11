@@ -5,6 +5,8 @@
     "url": "https://github.com/andyet/wicked-coolkit-user/issues"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
     "wicked-coolkit": "0.0.4"
   },
   "devDependencies": {
@@ -19,6 +21,6 @@
     "url": "git+https://github.com/andyet/wicked-coolkit-user.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   }
 }
