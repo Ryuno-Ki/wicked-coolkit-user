@@ -8,7 +8,6 @@ const {
   SALESFORCE_PASSWORD,
   DATABASE_URL,
   PORT,
-  HEROKU_APP_NAME,
 } = process.env
 
 const { start, app } = server({
@@ -32,15 +31,9 @@ app.set("view engine", "html")
 app.engine("html", require("hbs").__express)
 app.set("views", __dirname + "/views")
 
-app.get("/", (req, res) =>
-  res.render("trading-card", { host: `${HEROKU_APP_NAME}.herokuapp.com` })
-)
+app.get("/", (req, res) => res.render("trading-card"))
 
-app.get("/getting-started", (req, res) =>
-  res.render("getting-started", {
-    host: `${HEROKU_APP_NAME}.herokuapp.com`,
-  })
-)
+app.get("/getting-started", (req, res) => res.render("getting-started"))
 
 start()
   .then(() => console.log(`Server started on port ${PORT}`))
