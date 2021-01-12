@@ -5,9 +5,10 @@
     "url": "https://github.com/andyet/wicked-coolkit-user/issues"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "wicked-coolkit": "0.0.4"
+    "wicked-coolkit": "0.0.6"
   },
   "devDependencies": {
     "prettier": "^2.2.1"

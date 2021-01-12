@@ -1,15 +1,28 @@
+require("dotenv").config()
 const express = require("express")
 const server = require("wicked-coolkit")
 
+const {
+  SALESFORCE_URL,
+  SALESFORCE_USER,
+  SALESFORCE_PASSWORD,
+  DATABASE_URL,
+  PORT,
+  HEROKU_APP_NAME,
+} = process.env
+
 const { start, app } = server({
   sf: {
-    username: process.env.SALESFORCE_USER,
-    password: process.env.SALESFORCE_PASSWORD,
-    url: process.env.SALESFORCE_URL,
+    username: SALESFORCE_USER,
+    password: SALESFORCE_PASSWORD,
+    url: SALESFORCE_URL,
   },
-  pg: process.env.DATABASE_URL,
+  pg: {
+    connectionString: DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+  },
   app: {
-    port: process.env.PORT || 3003,
+    port: PORT || 3003,
   },
 })
 
@@ -20,15 +33,15 @@ app.engine("html", require("hbs").__express)
 app.set("views", __dirname + "/views")
 
 app.get("/", (req, res) =>
-  res.render("index", { host: `${process.env.HEROKU_APP_NAME}.herokuapp.com` })
+  res.render("index", { host: `${HEROKU_APP_NAME}.herokuapp.com` })
 )
 
 app.get("/getting-started", (req, res) =>
   res.render("getting-started", {
-    host: `${process.env.HEROKU_APP_NAME}.herokuapp.com`,
+    host: `${HEROKU_APP_NAME}.herokuapp.com`,
   })
 )
 
 start()
-  .then(() => console.log(`Server started on port ${config.host.port}/`))
+  .then(() => console.log(`Server started on port ${PORT}`))
   .catch(console.error)
