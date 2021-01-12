@@ -22,7 +22,7 @@ const { start, app } = server({
     ssl: { rejectUnauthorized: false },
   },
   app: {
-    port: PORT || 3003,
+    port: PORT,
   },
 })
 
@@ -33,7 +33,7 @@ app.engine("html", require("hbs").__express)
 app.set("views", __dirname + "/views")
 
 app.get("/", (req, res) =>
-  res.render("index", { host: `${HEROKU_APP_NAME}.herokuapp.com` })
+  res.render("trading-card", { host: `${HEROKU_APP_NAME}.herokuapp.com` })
 )
 
 app.get("/getting-started", (req, res) =>
