@@ -5,6 +5,7 @@
     "url": "https://github.com/andyet/wicked-coolkit-user/issues"
   },
   "dependencies": {
+    "clipboard": "^2.0.6",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
@@ -22,6 +23,7 @@
     "url": "git+https://github.com/andyet/wicked-coolkit-user.git"
   },
   "scripts": {
+    "build": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/",
     "start": "node server.js"
   }
 }

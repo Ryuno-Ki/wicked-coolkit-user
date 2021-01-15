@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/resources/favicon.ico" />
     <link rel="stylesheet" href="/resources/reset.css" />
     <link rel="stylesheet" href="/resources/getting-started.css" />
+    <script src="/resources/vendor/clipboard.min.js"></script>
   </head>
   <body>
     <div id="main">
@@ -75,9 +76,17 @@
             </div>
             <div class="content">
               <h2>Webring</h2>
-              <p>Copy/paste this embed code into your website and manage your webring in Salesforce.</p>
-              <pre><code>[NEEDS CODE HERE]</code></pre>
-              <a href="" class="button">Copy to clipboard</a>
+              <p>
+                Copy/paste this embed code into your website and manage your
+                webring in Salesforce.
+              </p>
+              <pre><code id="webring-code"></code></pre>
+              <button
+                data-clipboard-target="#webring-code"
+                class="button copy-button"
+              >
+                Copy to clipboard
+              </button>
               <a href="" class="button">Manage webring</a>
             </div>
           </div>
@@ -93,13 +102,19 @@
             <div class="content">
               <h2>Hit counter</h2>
               <p>Copy/paste this embed code into your website.</p>
-              <pre><code>[NEEDS CODE HERE]</code></pre>
-              <a href="" class="button">Copy to clipboard</a>
+              <pre><code id="hit-counter-code"></code></pre>
+              <button
+                data-clipboard-target="#hit-counter-code"
+                class="button copy-button"
+              >
+                Copy to clipboard
+              </button>
             </div>
           </div>
         </div>
       </main>
       <footer></footer>
     </div>
+    <script src="/resources/set-code.js"></script>
   </body>
 </html>
