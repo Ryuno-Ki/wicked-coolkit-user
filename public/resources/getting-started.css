@@ -18,9 +18,10 @@ header {
 main {
   box-sizing: border-box;
   max-width: 800px;
+  height: calc(100% - 180px);
   margin: 0 auto;
   padding: 30px;
-  padding-bottom: 4em;
+  padding-bottom: 3em;
   background-image: linear-gradient(225deg, transparent 4em, #f6f0e2 4em);
 }
 
@@ -38,6 +39,21 @@ h2 {
 p {
   margin-bottom: 20px;
   font-weight: normal;
+}
+
+pre {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  height: auto;
+  background-color: #323029;
+  border-radius: 3px;
+  color: #f6f0e2;
+  white-space: pre-wrap;
+}
+
+pre code {
+  display: block;
 }
 
 .button {
@@ -69,13 +85,23 @@ p {
   font-size: 1.1em;
 }
 
-.landing-options {
+.landing-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 30px;
 }
 
-.landing-options .image {
+.landing-item {
+  display: grid;
+  grid-gap: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .landing-item {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+.landing-item .image {
   height: 200px;
   border: 1px solid #1e1e60;
   display: grid;
