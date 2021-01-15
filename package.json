@@ -12,6 +12,7 @@
     "wicked-coolkit": "0.0.9"
   },
   "devDependencies": {
+    "cpr": "^3.0.1",
     "prettier": "^2.2.1"
   },
   "homepage": "https://github.com/andyet/wicked-coolkit-user#readme",
