@@ -1,7 +1,7 @@
 ;(function () {
   const generateSnippet = (name) => {
     const tag = name.replace(/[A-Z]/g, (l) => "-" + l).toLowerCase()
-    const scriptTag = `<script type="module" src="https://unpkg.com/wicked-coolkit/dist/${name}.js"></script>`
+    const scriptTag = `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/${name}.js"></script>`
     const componentTag = `<wck-${tag} host="${window.location.host}"></wck-${tag}>`
     return [scriptTag, componentTag].join("\n")
   }
