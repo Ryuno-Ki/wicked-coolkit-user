@@ -6,9 +6,16 @@
     return [scriptTag, componentTag].join("\n")
   }
 
-  const clip = new ClipboardJS(".copy-button")
-
-  clip.on("success", console.log)
+  new ClipboardJS(".copy-button").on("success", (e) => {
+    e.clearSelection()
+    const prevText = e.trigger.textContent.trim()
+    e.trigger.textContent = "Copied!"
+    e.trigger.setAttribute("disabled", true)
+    setTimeout(() => {
+      e.trigger.textContent = prevText
+      e.trigger.removeAttribute("disabled")
+    }, 3000)
+  })
 
   document.getElementById("hit-counter-code").innerText = generateSnippet(
     "hitCounter"
