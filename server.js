@@ -32,7 +32,6 @@ app.engine("html", require("hbs").__express)
 app.set("views", __dirname + "/views")
 
 app.get("/", (req, res) => res.render("trading-card"))
-
 app.get("/getting-started", (req, res) => res.render("getting-started"))
 
 start()
