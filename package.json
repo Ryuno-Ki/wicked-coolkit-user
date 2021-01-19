@@ -9,11 +9,13 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "wicked-coolkit": "0.0.9"
+    "wicked-coolkit": "0.0.11"
   },
   "devDependencies": {
     "cpr": "^3.0.1",
-    "prettier": "^2.2.1"
+    "if-env": "^1.0.4",
+    "prettier": "^2.2.1",
+    "terser": "^5.5.1"
   },
   "homepage": "https://github.com/andyet/wicked-coolkit-user#readme",
   "keywords": [],
@@ -24,7 +26,9 @@
     "url": "git+https://github.com/andyet/wicked-coolkit-user.git"
   },
   "scripts": {
-    "build": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/",
+    "build:vendor": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/clipboard.js -o",
+    "build:minify": "for file in public/resources/*.js; do terser $file --compress --mangle -o public/resources/`basename $file`; done",
+    "build": "npm run build:vendor && if-env NODE_ENV=production && npm run build:minify || echo 'Not minifying'",
     "start": "node server.js"
   }
 }
