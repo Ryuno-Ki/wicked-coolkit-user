@@ -32,8 +32,71 @@ nav a.home {
 
 #trading-card {
   padding: 10px;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 40px);
   display: grid;
   align-items: center;
 }
 
+footer {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: end;
+}
+
+#tweet-button {
+  text-decoration: none;
+  color: #1e1e60;
+  display: flex;
+  align-items: center;
+}
+
+#tweet-button:hover span {
+  text-decoration: underline
+}
+
+#tweet-button svg {
+  margin-right: 5px;
+}
+
+#share-button {
+  margin-left: 20px;
+  padding-left: 23px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  font-size: 100%;
+  font-family: 'Courier New', Courier, serif;
+  font-weight: bold;
+  color: #1e1e60;
+  cursor: pointer;
+}
+
+#share-button:before,
+#share-button:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  display: block;
+  background-color: #f6f0e2;
+  border: 2px solid #1e1e60;
+}
+
+#share-button:before {
+  left: 1px;
+  top: 1px;
+}
+
+#share-button:after {
+  left: 6px;
+  top: 6px;
+}
+
+#share-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+#share-button:hover {
+  text-decoration: underline;
+}
