@@ -3,18 +3,16 @@ const express = require("express")
 const server = require("wicked-coolkit")
 
 const {
-  SALESFORCE_URL,
-  SALESFORCE_USER,
-  SALESFORCE_PASSWORD,
+  SALESFORCE_URL = "https://login.salesforce.com",
+  SALESFORCE_AUTH_URL = "https://wickedcoolkit-oauth.herokuapp.com",
   DATABASE_URL,
   PORT,
 } = process.env
 
 const { start, app } = server({
   sf: {
-    username: SALESFORCE_USER,
-    password: SALESFORCE_PASSWORD,
-    url: SALESFORCE_URL,
+    loginUrl: SALESFORCE_URL,
+    authUrl: SALESFORCE_AUTH_URL,
   },
   pg: {
     connectionString: DATABASE_URL,
