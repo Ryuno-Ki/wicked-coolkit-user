@@ -7,6 +7,7 @@ const {
   SALESFORCE_AUTH_URL = "https://wickedcoolkit-oauth.herokuapp.com",
   DATABASE_URL,
   PORT,
+  NODE_ENV,
 } = process.env
 
 const { start, app } = server({
@@ -16,7 +17,9 @@ const { start, app } = server({
   },
   pg: {
     connectionString: DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    ssl: DATABASE_URL.match(/\blocalhost\b/)
+      ? false
+      : { rejectUnauthorized: false },
   },
   app: {
     port: PORT,
@@ -33,5 +36,11 @@ app.get("/", (req, res) => res.render("trading-card"))
 app.get("/getting-started", (req, res) => res.render("getting-started"))
 
 start()
-  .then(() => console.log(`Server started on port ${PORT}`))
+  .then(() =>
+    console.log(
+      `Server started on ${
+        NODE_ENV === "production" ? "port " : "http://localhost:"
+      }${PORT}`
+    )
+  )
   .catch(console.error)
