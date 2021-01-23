@@ -1,5 +1,5 @@
 ;(function () {
-  const text = "This is your Wicked Cool Trading Card!"
+  const text = "Check out my Wicked Cool Trading Card!"
   const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}`
   const via = "heroku"
   const hashtags = "wickedcoolkit"
