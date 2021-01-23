@@ -44,11 +44,24 @@
         <div class="landing-intro">
           <p><strong>Welcome to your Wicked Coolkit!</strong></p>
           <p>
-            Create your developer trading card or add a hit counter or webring
-            to your sites.
+            Follow these three steps to get started:
           </p>
-          <a class="button" href="/api/auth">Auth</a>
-          <a class="button" href="/api/setup">Setup</a>
+          <ol>
+            <li>
+              <a href="https://developer.salesforce.com/signup">Create a Salesforce developer account</a>
+              <span>Fill out the form and you’ll receive a verification email. Click to verify and set a password.</span>
+            </li>
+            <li>
+              <!-- TODO: Needs link (wasn’t sure which one?) -->
+              <a href="">Deploy Salesforce app</a>
+              <span>Log in with new credentials (if not already logged in).</span>
+            </li>
+            <li>
+              <a href="/api/auth">Connect Heroku app to Salesforce app</a>
+              <span>When prompted, click “Allow”</span>
+            </li>
+          </ol>
+          <p>Now you’re ready to complete your card! 👇</p>
         </div>
         <div class="landing-list">
           <div class="landing-item landing-card">
@@ -63,7 +76,7 @@
             <div class="content">
               <h2>Developer trading card</h2>
               <p>Edit your card details and add stickers.</p>
-              <a href="" class="button">Complete my card</a>
+              <a href="/api/setup" class="button">Complete my card</a>
             </div>
           </div>
           <div class="landing-item landing-webring">
@@ -88,6 +101,7 @@
               >
                 Copy to clipboard
               </button>
+              <!-- TODO: Needs link to Salesforce UI -->
               <a href="" class="button">Manage webring</a>
             </div>
           </div>
