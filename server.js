@@ -3,22 +3,23 @@ const express = require("express")
 const server = require("wicked-coolkit")
 
 const {
-  SALESFORCE_URL,
-  SALESFORCE_USER,
-  SALESFORCE_PASSWORD,
+  SALESFORCE_URL = "https://login.salesforce.com",
+  SALESFORCE_AUTH_URL = "https://wickedcoolkit-oauth.herokuapp.com",
   DATABASE_URL,
   PORT,
+  NODE_ENV,
 } = process.env
 
 const { start, app } = server({
   sf: {
-    username: SALESFORCE_USER,
-    password: SALESFORCE_PASSWORD,
-    url: SALESFORCE_URL,
+    loginUrl: SALESFORCE_URL,
+    authUrl: SALESFORCE_AUTH_URL,
   },
   pg: {
     connectionString: DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    ssl: DATABASE_URL.match(/\blocalhost\b/)
+      ? false
+      : { rejectUnauthorized: false },
   },
   app: {
     port: PORT,
@@ -35,5 +36,11 @@ app.get("/", (req, res) => res.render("trading-card"))
 app.get("/getting-started", (req, res) => res.render("getting-started"))
 
 start()
-  .then(() => console.log(`Server started on port ${PORT}`))
+  .then(() =>
+    console.log(
+      `Server started on ${
+        NODE_ENV === "production" ? "port " : "http://localhost:"
+      }${PORT}`
+    )
+  )
   .catch(console.error)

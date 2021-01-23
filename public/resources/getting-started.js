@@ -1,8 +1,10 @@
 ;(function () {
+  const { host, protocol } = window.location
+
   const generateSnippet = (name) => {
     const tag = name.replace(/[A-Z]/g, (l) => "-" + l).toLowerCase()
     const scriptTag = `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/${name}.js"></script>`
-    const componentTag = `<wck-${tag} host="${window.location.host}"></wck-${tag}>`
+    const componentTag = `<wck-${tag} host="${host}"></wck-${tag}>`
     return [scriptTag, componentTag].join("\n")
   }
 
@@ -22,4 +24,11 @@
   )
 
   document.getElementById("webring-code").innerText = generateSnippet("webring")
+
+  document.querySelectorAll("[href^='/api']").forEach((n) => {
+    n.setAttribute(
+      "href",
+      `${n.getAttribute("href")}?redirect_host=${protocol}//${host}`
+    )
+  })
 })()
