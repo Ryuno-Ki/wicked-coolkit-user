@@ -10,7 +10,7 @@ const {
   NODE_ENV,
 } = process.env
 
-const { start, app } = server({
+const { start, app, sf } = server({
   sf: {
     loginUrl: SALESFORCE_URL,
     authUrl: SALESFORCE_AUTH_URL,
@@ -33,7 +33,10 @@ app.engine("html", require("hbs").__express)
 app.set("views", __dirname + "/views")
 
 app.get("/", (req, res) => res.render("trading-card"))
-app.get("/getting-started", (req, res) => res.render("getting-started"))
+app.get("/getting-started", (req, res) => {
+  res.locals = { auth: !!sf.connection }
+  res.render("getting-started")
+})
 
 start()
   .then(() =>

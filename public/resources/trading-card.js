@@ -11,11 +11,12 @@
       )
       .slice(0, -1)
 
-  const params = { text, url, via, hashtags }
-
   document
     .getElementById("tweet-button")
-    .setAttribute("href", `https://twitter.com/intent/tweet?${qs(params)}`)
+    .setAttribute(
+      "href",
+      `https://twitter.com/intent/tweet?${qs({ text, url, via, hashtags })}`
+    )
 
   const clip = new ClipboardJS("#share-button", {
     text: () => url,

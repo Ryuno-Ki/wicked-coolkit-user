@@ -1,7 +1,7 @@
 body {
   background-color: #f6f0e2;
   font-size: 100%;
-  font-family: 'Courier New', Courier, serif;
+  font-family: "Courier New", Courier, serif;
   font-weight: bold;
   color: #1e1e60;
 }
@@ -52,7 +52,7 @@ footer {
 }
 
 #tweet-button:hover span {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 #tweet-button svg {
@@ -66,7 +66,7 @@ footer {
   background-color: transparent;
   position: relative;
   font-size: 100%;
-  font-family: 'Courier New', Courier, serif;
+  font-family: "Courier New", Courier, serif;
   font-weight: bold;
   color: #1e1e60;
   cursor: pointer;
@@ -74,7 +74,7 @@ footer {
 
 #share-button:before,
 #share-button:after {
-  content: '';
+  content: "";
   width: 12px;
   height: 12px;
   position: absolute;

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/resources/getting-started.css" />
     <script src="/resources/vendor/clipboard.js"></script>
   </head>
-  <body>
+  <body class="{{#if auth}}has-auth{{else}}no-auth{{/if}}">
     <div id="main">
       <header>
         <svg
@@ -43,21 +43,29 @@
       <main>
         <div class="landing-intro">
           <p><strong>Welcome to your Wicked Coolkit!</strong></p>
-          <p>
-            Follow these three steps to get started:
-          </p>
+          <p>Follow these three steps to get started:</p>
           <ol>
             <li>
-              <a href="https://developer.salesforce.com/signup">Create a Salesforce developer account</a>
-              <span>Fill out the form and you’ll receive a verification email. Click to verify and set a password.</span>
+              <a href="https://developer.salesforce.com/signup">
+                Create a Salesforce developer account
+              </a>
+              <span>
+                Fill out the form and you’ll receive a verification email. Click
+                to verify and set a password.
+              </span>
             </li>
             <li>
-              <!-- TODO: Needs link (wasn’t sure which one?) -->
-              <a href="">Deploy Salesforce app</a>
-              <span>Log in with new credentials (if not already logged in).</span>
+              <!--
+              TODO: Needs link once Salesforce code is bundled
+              https://github.com/andyet/wickedcoolkit.com/issues/34
+              -->
+              <a href="#">Deploy Salesforce app</a>
+              <span>
+                Log in with new credentials (if not already logged in).
+              </span>
             </li>
             <li>
-              <a href="/api/auth">Connect Heroku app to Salesforce app</a>
+              <a href="/sf/auth">Connect Heroku app to Salesforce app</a>
               <span>When prompted, click “Allow”</span>
             </li>
           </ol>
@@ -76,7 +84,12 @@
             <div class="content">
               <h2>Developer trading card</h2>
               <p>Edit your card details and add stickers.</p>
-              <a href="/api/setup" class="button">Complete my card</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=card{{else}}#{{/if}}"
+                class="button needs-auth"
+              >
+                Complete my card
+              </a>
             </div>
           </div>
           <div class="landing-item landing-webring">
@@ -101,8 +114,12 @@
               >
                 Copy to clipboard
               </button>
-              <!-- TODO: Needs link to Salesforce UI -->
-              <a href="" class="button">Manage webring</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=webring{{else}}#{{/if}}"
+                class="button needs-auth"
+              >
+                Manage webring
+              </a>
             </div>
           </div>
           <div class="landing-item landing-hitcounter">
