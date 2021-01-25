@@ -15,9 +15,10 @@ nav {
 }
 
 nav a {
-  display: inline-block;
+  display: flex;
   text-decoration: none;
   color: inherit;
+  align-items: center;
 }
 
 nav h1 {
@@ -28,6 +29,7 @@ nav a.home {
   padding: 7px 15px 5px;
   color: #f6f0e2;
   background-color: #323029;
+  font-size: 90%;
 }
 
 #trading-card {
@@ -42,6 +44,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-self: end;
+  font-size: 90%;
 }
 
 #tweet-button {
