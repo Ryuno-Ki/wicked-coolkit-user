@@ -4,9 +4,9 @@ const server = require("wicked-coolkit")
 
 const {
   SALESFORCE_URL = "https://login.salesforce.com",
-  SALESFORCE_AUTH_URL = "https://wickedcoolkit-oauth.herokuapp.com",
+  SALESFORCE_AUTH_URL = "https://wickedcoolkit-oauth.herokuapp.com",=
+  PORT = 3002,
   DATABASE_URL,
-  PORT,
   NODE_ENV,
 } = process.env
 
