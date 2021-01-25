@@ -8,7 +8,9 @@ This repo contains the code that each individual can deploy to Heroku to manage 
 
 ## Local Dev
 
-This is an Express app that pulls in most of its functionality from the [`wicked-coolkit` package](http://npmjs.com/package/wicked-coolkit). To run it, first run `npm run build` followed by `npm start`.
+This is an Express app that pulls in most of its functionality from the [`wicked-coolkit` package](http://npmjs.com/package/wicked-coolkit).
+
+To run it, first run `npm run build` followed by `npm start`.
 
 When running locally (and testing against a local database and Salesforce scratch org), you can create a `.env` file with the following variables:
 
