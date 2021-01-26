@@ -114,8 +114,7 @@ pre code {
   margin-left: 12px;
 }
 
-body.no-auth .button.needs-auth,
-body.no-auth .button.needs-auth:hover {
+.button.disabled {
   cursor: default;
   box-shadow: none;
   background-color: #f6f0e2;
