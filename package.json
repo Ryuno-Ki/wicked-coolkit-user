@@ -1,5 +1,6 @@
 {
   "name": "wicked-coolkit-user",
+  "description": "A fun, nostalgic web toolkit built on Heroku and Salesforce.",
   "version": "1.0.0",
   "bugs": {
     "url": "https://github.com/andyet/wicked-coolkit-user/issues"
@@ -9,7 +10,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "wicked-coolkit": "0.0.17"
+    "wicked-coolkit": "0.0.20"
   },
   "devDependencies": {
     "cpr": "^3.0.1",
@@ -18,17 +19,17 @@
     "terser": "^5.5.1"
   },
   "homepage": "https://github.com/andyet/wicked-coolkit-user#readme",
-  "keywords": [],
   "license": "ISC",
   "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andyet/wicked-coolkit-user.git"
   },
   "scripts": {
-    "build:vendor": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/clipboard.js -o",
-    "build:minify": "for file in public/resources/*.js; do terser $file --compress --mangle -o public/resources/`basename $file`; done",
     "build": "npm run build:vendor && if-env NODE_ENV=production && npm run build:minify || echo 'Not minifying'",
+    "build:minify": "for file in public/resources/*.js; do terser $file --compress --mangle -o public/resources/`basename $file`; done",
+    "build:vendor": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/clipboard.js -o",
     "start": "node server.js"
   }
 }
