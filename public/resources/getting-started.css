@@ -79,6 +79,7 @@ pre {
   border-radius: 3px;
   color: #f6f0e2;
   white-space: pre-wrap;
+  font-size: 85%;
 }
 
 pre code {
