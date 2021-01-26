@@ -14,7 +14,10 @@
   },
   "devDependencies": {
     "cpr": "^3.0.1",
+    "cssnano": "^4.1.10",
     "if-env": "^1.0.4",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
     "prettier": "^2.2.1",
     "terser": "^5.5.1"
   },
@@ -27,9 +30,12 @@
     "url": "git+https://github.com/andyet/wicked-coolkit-user.git"
   },
   "scripts": {
-    "build": "npm run build:vendor && if-env NODE_ENV=production && npm run build:minify || echo 'Not minifying'",
-    "build:minify": "for file in public/resources/*.js; do terser $file --compress --mangle -o public/resources/`basename $file`; done",
+    "build": "npm run build:vendor && if-env NODE_ENV=production && npm run build:assets || echo 'Not building assets'",
+    "build:assets": "npm run clean && npm run build:js && npm run build:css",
+    "build:css": "for file in public/resources/*.css; do cat $file | postcss > ${file%.*}.min.css; done",
+    "build:js": "for file in public/resources/*.js; do terser $file --compress --mangle -o ${file%.*}.min.js; done",
     "build:vendor": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/clipboard.js -o",
+    "clean": "rm -rf public/resources/*.min.*",
     "start": "node server.js"
   }
 }

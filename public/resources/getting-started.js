@@ -1,9 +1,10 @@
 ;(function () {
   const { host, protocol } = window.location
+  const { cdn } = window.WICKED_COOLKIT
 
   const generateSnippet = (name) => {
     const tag = name.replace(/[A-Z]/g, (l) => "-" + l).toLowerCase()
-    const scriptTag = `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/${name}.js"></script>`
+    const scriptTag = `<script type="module" async src="${cdn}/${name}.js"></script>`
     const componentTag = `<wck-${tag} host="${host}"></wck-${tag}>`
     return [scriptTag, componentTag].join("\n")
   }

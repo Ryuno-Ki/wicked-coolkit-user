@@ -9,11 +9,11 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="/resources/favicon.ico" />
-    <link rel="stylesheet" href="/resources/reset.css" />
-    <link rel="stylesheet" href="/resources/getting-started.css" />
+    <link rel="stylesheet" href="/resources/reset{{dotMin}}.css" />
+    <link rel="stylesheet" href="/resources/getting-started{{dotMin}}.css" />
     <script src="/resources/vendor/clipboard.js"></script>
   </head>
-  <body class="{{#if auth}}has-auth{{else}}no-auth{{/if}}">
+  <body>
     <div id="main">
       <header>
         <svg
@@ -106,7 +106,7 @@
               <p>Edit your card details and add stickers.</p>
               <a
                 href="{{#if auth}}/sf/setup?page=card{{else}}#{{/if}}"
-                class="button needs-auth"
+                class="button {{#unless auth}}disabled{{/unless}}"
               >
                 Complete my card
               </a>
@@ -136,7 +136,7 @@
               </button>
               <a
                 href="{{#if auth}}/sf/setup?page=webring{{else}}#{{/if}}"
-                class="button needs-auth"
+                class="button {{#unless auth}}disabled{{/unless}}"
               >
                 Manage webring
               </a>
@@ -167,6 +167,9 @@
       </main>
       <footer></footer>
     </div>
-    <script src="/resources/getting-started.js"></script>
+    <script>
+      window.WICKED_COOLKIT={{{jsonData}}};
+    </script>
+    <script src="/resources/getting-started{{dotMin}}.js"></script>
   </body>
 </html>
