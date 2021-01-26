@@ -1,9 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const server = require("wicked-coolkit")
-const Handlebars = require("handlebars")
-const fs = require("fs")
-const path = require("path")
+const hbs = require("hbs")
 const wckVersion = require("./package.json").dependencies["wicked-coolkit"]
 
 const PROD = process.env.NODE_ENV === "production"
@@ -15,12 +13,6 @@ const data = {
   jsonData: JSON.stringify({ cdn: CDN }),
 }
 
-const templates = fs.readdirSync("views").reduce((acc, f) => {
-  const templateSrc = fs.readFileSync(path.join("views", f)).toString()
-  acc[path.basename(f, ".html")] = Handlebars.compile(templateSrc)
-  return acc
-}, {})
-
 const { start, app, sf } = server({
   loginUrl: process.env.SALESFORCE_URL,
   authUrl: process.env.SALESFORCE_AUTH_URL,
@@ -28,18 +20,18 @@ const { start, app, sf } = server({
 })
 
 app.use(express.static("./public"))
+app.set("view engine", "html")
+app.engine("html", hbs.__express)
 
 app.get("/", (req, res) => {
-  res.send(templates["trading-card"](data))
+  res.render("trading-card", data)
 })
 
 app.get("/getting-started", (req, res) => {
-  res.send(
-    templates["getting-started"]({
-      ...data,
-      auth: !!sf.connection,
-    })
-  )
+  res.render("getting-started", {
+    ...data,
+    auth: !!sf.connection,
+  })
 })
 
 start()
