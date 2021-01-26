@@ -45,6 +45,11 @@ strong {
   font-weight: bold;
 }
 
+small {
+  font-weight: normal;
+  font-size: 80%;
+}
+
 ol {
   padding: 1em 0;
   list-style-type: decimal;
@@ -68,6 +73,11 @@ ol span {
   display: block;
   font-size: 90%;
   font-weight: normal;
+}
+
+ol li ul {
+  margin: .5em 0;
+  list-style-type: disc;
 }
 
 pre {
