@@ -43,18 +43,31 @@
       <main>
         {{#if success}}
         <div class="success message">
-          Your Heroku app has been successfully connected to Salesforce!
+          <span
+            >Your Heroku app has been successfully connected to
+            Salesforce!</span
+          >
+          <button class="close-button" aria-label="Close message">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         {{/if}} {{#if error}}
         <div class="error message">
-          There was an error trying to connect your Heroku app to Salesforce.
-          You can <a href="/sf/auth">try again</a> or report your issue on
-          <a href="{{bugsUrl}}">GitHub</a>.
+          <span
+            >There was an error trying to connect your Heroku app to Salesforce.
+            You can <a href="/sf/auth">try again</a> or report your issue on
+            <a href="{{bugsUrl}}">GitHub</a>.</span
+          >
+          <button class="close-button" aria-label="Close message">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         {{/if}}
         <div class="landing-intro">
           <p><strong>Welcome to your Wicked Coolkit!</strong></p>
           <p>Follow these three steps to get started:</p>
+        </div>
+        <div class="landing-steps">
           <ol>
             <li>
               <a href="https://developer.salesforce.com/signup">

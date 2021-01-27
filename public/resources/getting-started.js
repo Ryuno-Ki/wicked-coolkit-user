@@ -15,6 +15,16 @@
 
   document.getElementById("webring-code").innerText = generateSnippet("webring")
 
+  document.querySelectorAll(".close-button").forEach((n) => {
+    n.addEventListener("click", () => {
+      n.closest(".message").remove()
+      const newUrl = new URL(window.location.href)
+      newUrl.searchParams.delete("auth_success")
+      newUrl.searchParams.delete("auth_error")
+      history.replaceState(null, "", newUrl)
+    })
+  })
+
   document.querySelectorAll("[href^='/sf/']").forEach((n) => {
     const href = new URL(n.getAttribute("href"), window.location.href)
     href.searchParams.set("redirect_host", `${protocol}//${host}`)
