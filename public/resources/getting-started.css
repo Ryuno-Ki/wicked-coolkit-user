@@ -69,6 +69,13 @@ ol a:hover {
   color: #1e1e60;
 }
 
+ol a.disabled,
+ol a.disabled:hover {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 ol span {
   display: block;
   font-size: 90%;
@@ -76,7 +83,7 @@ ol span {
 }
 
 ol li ul {
-  margin: .5em 0;
+  margin: 0.5em 0;
   list-style-type: disc;
 }
 
@@ -131,6 +138,11 @@ pre code {
   border: 2px solid #009edb;
   color: #009edb;
   opacity: 0.5;
+  pointer-events: none;
+}
+
+.message {
+  margin: 0 3em 2em 0;
 }
 
 .landing-intro {

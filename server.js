@@ -2,7 +2,8 @@ require("dotenv").config()
 const express = require("express")
 const server = require("wicked-coolkit")
 const hbs = require("hbs")
-const wckVersion = require("./package.json").dependencies["wicked-coolkit"]
+const pack = require("./package.json")
+const wckVersion = pack.dependencies["wicked-coolkit"]
 
 const PROD = process.env.NODE_ENV === "production"
 const CDN = `https://unpkg.com/wicked-coolkit@${wckVersion}/dist`
@@ -11,6 +12,7 @@ const data = {
   dotMin: PROD ? ".min" : "",
   cdn: CDN,
   jsonData: JSON.stringify({ cdn: CDN }),
+  bugsUrl: pack.bugs.url,
 }
 
 const { start, app, sf } = server({
@@ -30,6 +32,8 @@ app.get("/", (req, res) => {
 app.get("/getting-started", (req, res) => {
   res.render("getting-started", {
     ...data,
+    error: !!req.query.auth_error,
+    success: !!req.query.auth_success,
     auth: !!sf.connection,
   })
 })
