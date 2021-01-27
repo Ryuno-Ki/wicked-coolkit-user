@@ -41,6 +41,17 @@
       </header>
 
       <main>
+        {{#if success}}
+        <div class="success message">
+          Your Heroku app has been successfully connected to Salesforce!
+        </div>
+        {{/if}} {{#if error}}
+        <div class="error message">
+          There was an error trying to connect your Heroku app to Salesforce.
+          You can <a href="/sf/auth">try again</a> or report your issue on
+          <a href="{{bugsUrl}}">GitHub</a>.
+        </div>
+        {{/if}}
         <div class="landing-intro">
           <p><strong>Welcome to your Wicked Coolkit!</strong></p>
           <p>Follow these three steps to get started:</p>
@@ -55,11 +66,9 @@
               </span>
             </li>
             <li>
-              <!--
-              TODO: Needs link once Salesforce code is bundled
-              https://github.com/andyet/wickedcoolkit.com/issues/34
-              -->
-              <a href="#">Deploy Salesforce app</a>
+              <a href="https://wickedcoolkit.com/install"
+                >Deploy Salesforce app</a
+              >
               <span>
                 Log in with new credentials (if not already logged in).
               </span>
@@ -69,10 +78,11 @@
               <span>When prompted, click “Allow”</span>
             </li>
             <li>
-              <!--
-              TODO: Set link to go to their https://login.salesforce.com/lightning/setup/ThemingAndBranding/home
-              -->
-              <a href="">Set your Salesforce theme</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=theme{{else}}#{{/if}}"
+                class="{{#unless auth}}disabled{{/unless}}"
+                >Set your Salesforce theme</a
+              >
               <small>(optional, but fun)</small>
               <span>
                 Click on the arrow next to Wicked CoolKit theme and choose
@@ -80,10 +90,11 @@
               </span>
             </li>
             <li>
-              <!--
-              TODO: Set link to go to their https://login.salesforce.com/lightning/setup/DataManagementDataImporter/home
-              -->
-              <a href="">Import stickers CSV</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=import{{else}}#{{/if}}"
+                class="{{#unless auth}}disabled{{/unless}}"
+                >Import stickers CSV</a
+              >
               <span>
                 Click on Launch Wizard! button.<br />
                 Choose Custom objects tab and then Stickers.<br />
@@ -94,12 +105,11 @@
                 >.<br />
                 Click Next and then Start import.
               </span>
-              <!-- TODO: Update proper CSV path above? -->
             </li>
             <li>
-              <a href="/resources/images/app-launcher.gif">
-                Move Wicked Coolkit to the top of your App Launcher
-              </a>
+              <a href="/resources/images/app-launcher.gif"
+                >Move Wicked Coolkit to the top of your App Launcher</a
+              >
               <small>(optional, but helpful)</small>
             </li>
           </ol>
