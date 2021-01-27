@@ -36,6 +36,8 @@
     "build:js": "for file in public/resources/*.js; do terser $file --compress --mangle -o ${file%.*}.min.js; done",
     "build:vendor": "cpr node_modules/clipboard/dist/clipboard.min.js public/resources/vendor/clipboard.js -o",
     "clean": "rm -rf public/resources/*.min.*",
-    "start": "node server.js"
+    "start": "node server.js",
+    "prettier": "prettier --write \"**/*.{css,html,js,json,md}\"",
+    "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md}\""
   }
 }
