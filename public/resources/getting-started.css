@@ -50,6 +50,10 @@ small {
   font-size: 80%;
 }
 
+img {
+  max-width: 100%;
+}
+
 ol {
   padding: 1em 0;
   list-style-type: decimal;
@@ -142,13 +146,49 @@ pre code {
 }
 
 .message {
-  margin: 0 3em 2em 0;
+  margin: 0 4.5em 2em 0;
+  padding: .5em .5em .3em .7em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  font-size: 90%;
+}
+
+.message a {
+  color: inherit;
+}
+
+.message.success {
+  background-color: #79589f;
+  background-image: linear-gradient(to right, #79589f, #009edb);
+  color: #f6f0e2;
+}
+
+.message.error {
+  background-color: crimson;
+  color: #f6f0e2;
+}
+
+.close-button {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 120%;
+  font-weight: bold;
+  line-height: 1;
+  color: #f6f0e2;
+  cursor: pointer;
 }
 
 .landing-intro {
-  margin: 0 3em 2em 0;
+  margin: 0 3em 1em 0;
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.landing-steps {
+  margin-bottom: 2em;
 }
 
 .landing-list {
