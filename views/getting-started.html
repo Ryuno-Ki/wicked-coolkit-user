@@ -41,24 +41,23 @@
       </header>
 
       <main>
-        <div class="error message">
-          <span>There was an error trying to connect your Heroku app to Salesforce. You can <a href="/sf/auth">try again</a> or report your issue on <a href="{{bugsUrl}}">GitHub</a>.</span>
-          <button class="close-button" aria-label="Close message">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         {{#if success}}
         <div class="success message">
-          <span>Your Heroku app has been successfully connected to Salesforce!</span>
+          <span
+            >Your Heroku app has been successfully connected to
+            Salesforce!</span
+          >
           <button class="close-button" aria-label="Close message">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         {{/if}} {{#if error}}
         <div class="error message">
-          <span>There was an error trying to connect your Heroku app to Salesforce.
-          You can <a href="/sf/auth">try again</a> or report your issue on
-          <a href="{{bugsUrl}}">GitHub</a>.</span>
+          <span
+            >There was an error trying to connect your Heroku app to Salesforce.
+            You can <a href="/sf/auth">try again</a> or report your issue on
+            <a href="{{bugsUrl}}">GitHub</a>.</span
+          >
           <button class="close-button" aria-label="Close message">
             <span aria-hidden="true">&times;</span>
           </button>
