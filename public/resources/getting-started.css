@@ -41,6 +41,45 @@ p {
   font-weight: normal;
 }
 
+strong {
+  font-weight: bold;
+}
+
+small {
+  font-weight: normal;
+  font-size: 80%;
+}
+
+ol {
+  padding: 1em 0;
+  list-style-type: decimal;
+  padding-left: 2em;
+  font-weight: bold;
+}
+
+ol li {
+  margin-bottom: 1em;
+}
+
+ol a {
+  color: #009edb;
+}
+
+ol a:hover {
+  color: #1e1e60;
+}
+
+ol span {
+  display: block;
+  font-size: 90%;
+  font-weight: normal;
+}
+
+ol li ul {
+  margin: .5em 0;
+  list-style-type: disc;
+}
+
 pre {
   width: 100%;
   margin-bottom: 20px;
@@ -50,6 +89,7 @@ pre {
   border-radius: 3px;
   color: #f6f0e2;
   white-space: pre-wrap;
+  font-size: 85%;
 }
 
 pre code {
@@ -64,7 +104,7 @@ pre code {
   box-shadow: 4px 4px 0 #009edb;
   border: 2px solid #009edb;
   text-decoration: none;
-  font-size: 112.5%;
+  font-size: 100%;
   font-family: "Courier New", Courier, serif;
   font-weight: bold;
   line-height: 1.4;
@@ -82,6 +122,15 @@ pre code {
 
 .button + .button {
   margin-left: 12px;
+}
+
+.button.disabled {
+  cursor: default;
+  box-shadow: none;
+  background-color: #f6f0e2;
+  border: 2px solid #009edb;
+  color: #009edb;
+  opacity: 0.5;
 }
 
 .landing-intro {

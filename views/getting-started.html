@@ -9,8 +9,8 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="/resources/favicon.ico" />
-    <link rel="stylesheet" href="/resources/reset.css" />
-    <link rel="stylesheet" href="/resources/getting-started.css" />
+    <link rel="stylesheet" href="/resources/reset{{dotMin}}.css" />
+    <link rel="stylesheet" href="/resources/getting-started{{dotMin}}.css" />
     <script src="/resources/vendor/clipboard.js"></script>
   </head>
   <body>
@@ -43,12 +43,67 @@
       <main>
         <div class="landing-intro">
           <p><strong>Welcome to your Wicked Coolkit!</strong></p>
-          <p>
-            Create your developer trading card or add a hit counter or webring
-            to your sites.
-          </p>
-          <a class="button" href="/api/auth">Auth</a>
-          <a class="button" href="/api/setup">Setup</a>
+          <p>Follow these three steps to get started:</p>
+          <ol>
+            <li>
+              <a href="https://developer.salesforce.com/signup">
+                Create a Salesforce developer account
+              </a>
+              <span>
+                Fill out the form and you’ll receive a verification email. Click
+                to verify and set a password.
+              </span>
+            </li>
+            <li>
+              <!--
+              TODO: Needs link once Salesforce code is bundled
+              https://github.com/andyet/wickedcoolkit.com/issues/34
+              -->
+              <a href="#">Deploy Salesforce app</a>
+              <span>
+                Log in with new credentials (if not already logged in).
+              </span>
+            </li>
+            <li>
+              <a href="/sf/auth">Connect Heroku app to Salesforce app</a>
+              <span>When prompted, click “Allow”</span>
+            </li>
+            <li>
+              <!--
+              TODO: Set link to go to their https://login.salesforce.com/lightning/setup/ThemingAndBranding/home
+              -->
+              <a href="">Set your Salesforce theme</a>
+              <small>(optional, but fun)</small>
+              <span>
+                Click on the arrow next to Wicked CoolKit theme and choose
+                Activate.
+              </span>
+            </li>
+            <li>
+              <!--
+              TODO: Set link to go to their https://login.salesforce.com/lightning/setup/DataManagementDataImporter/home
+              -->
+              <a href="">Import stickers CSV</a>
+              <span>
+                Click on Launch Wizard! button.<br />
+                Choose Custom objects tab and then Stickers.<br />
+                Choose Add new record.<br />
+                Drag and drop
+                <a href="{{cdn}}/stickers/stickers.csv" download
+                  >this CSV file</a
+                >.<br />
+                Click Next and then Start import.
+              </span>
+              <!-- TODO: Update proper CSV path above? -->
+            </li>
+            <li>
+              <a href="/resources/images/app-launcher.gif">
+                Move Wicked Coolkit to the top of your App Launcher
+              </a>
+              <small>(optional, but helpful)</small>
+            </li>
+          </ol>
+          <p>Now you’re ready to complete your card! 👇</p>
         </div>
         <div class="landing-list">
           <div class="landing-item landing-card">
@@ -63,7 +118,12 @@
             <div class="content">
               <h2>Developer trading card</h2>
               <p>Edit your card details and add stickers.</p>
-              <a href="" class="button">Complete my card</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=card{{else}}#{{/if}}"
+                class="button {{#unless auth}}disabled{{/unless}}"
+              >
+                Complete my card
+              </a>
             </div>
           </div>
           <div class="landing-item landing-webring">
@@ -88,7 +148,12 @@
               >
                 Copy to clipboard
               </button>
-              <a href="" class="button">Manage webring</a>
+              <a
+                href="{{#if auth}}/sf/setup?page=webring{{else}}#{{/if}}"
+                class="button {{#unless auth}}disabled{{/unless}}"
+              >
+                Manage webring
+              </a>
             </div>
           </div>
           <div class="landing-item landing-hitcounter">
@@ -116,6 +181,9 @@
       </main>
       <footer></footer>
     </div>
-    <script src="/resources/getting-started.js"></script>
+    <script>
+      window.WICKED_COOLKIT={{{jsonData}}};
+    </script>
+    <script src="/resources/getting-started{{dotMin}}.js"></script>
   </body>
 </html>

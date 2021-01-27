@@ -116,3 +116,4 @@ dist
 .pnp.*
 
 public/resources/vendor/
+public/resources/*.min.*

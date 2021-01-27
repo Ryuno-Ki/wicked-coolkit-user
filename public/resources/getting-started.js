@@ -1,12 +1,25 @@
 ;(function () {
   const { host, protocol } = window.location
+  const { cdn } = window.WICKED_COOLKIT
 
   const generateSnippet = (name) => {
     const tag = name.replace(/[A-Z]/g, (l) => "-" + l).toLowerCase()
-    const scriptTag = `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/${name}.js"></script>`
+    const scriptTag = `<script type="module" async src="${cdn}/${name}.js"></script>`
     const componentTag = `<wck-${tag} host="${host}"></wck-${tag}>`
     return [scriptTag, componentTag].join("\n")
   }
+
+  document.getElementById("hit-counter-code").innerText = generateSnippet(
+    "hitCounter"
+  )
+
+  document.getElementById("webring-code").innerText = generateSnippet("webring")
+
+  document.querySelectorAll("[href^='/sf/']").forEach((n) => {
+    const href = new URL(n.getAttribute("href"), window.location.href)
+    href.searchParams.set("redirect_host", `${protocol}//${host}`)
+    n.setAttribute("href", href)
+  })
 
   new ClipboardJS(".copy-button").on("success", (e) => {
     e.clearSelection()
@@ -17,18 +30,5 @@
       e.trigger.textContent = prevText
       e.trigger.removeAttribute("disabled")
     }, 3000)
-  })
-
-  document.getElementById("hit-counter-code").innerText = generateSnippet(
-    "hitCounter"
-  )
-
-  document.getElementById("webring-code").innerText = generateSnippet("webring")
-
-  document.querySelectorAll("[href^='/api']").forEach((n) => {
-    n.setAttribute(
-      "href",
-      `${n.getAttribute("href")}?redirect_host=${protocol}//${host}`
-    )
   })
 })()
