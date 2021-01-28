@@ -65,7 +65,8 @@ ol li {
   margin-bottom: 1em;
 }
 
-ol a {
+ol a,
+p a  {
   color: #009edb;
 }
 
@@ -212,4 +213,9 @@ pre code {
   border: 1px solid #1e1e60;
   display: grid;
   place-content: center;
+}
+
+.footer {
+  margin: 2em 0 0;
+  text-align: center;
 }
