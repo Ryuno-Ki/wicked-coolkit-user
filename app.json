@@ -2,6 +2,7 @@
   "name": "Heroku Wicked Coolkit",
   "description": "A fun, nostalgic web toolkit built on Heroku and Salesforce.",
   "website": "https://wickedcoolkit.com",
+  "logo": "https://wickedcoolkit.com/resources/images/og-image.png",
   "repository": "https://github.com/fostive/wicked-coolkit-user",
   "buildpacks": [
     {
