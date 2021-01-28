@@ -39,6 +39,12 @@ nav a.home {
   align-items: center;
 }
 
+.trading-card-container {
+  width: 100%;
+  max-width: 800px;
+  justify-self: center;
+}
+
 footer {
   margin-top: 25px;
   display: flex;
