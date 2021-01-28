@@ -12,7 +12,8 @@ const data = {
   dotMin: PROD ? ".min" : "",
   cdn: CDN,
   jsonData: JSON.stringify({ cdn: CDN }),
-  bugsUrl: pack.bugs.url,
+  bugsUrl: `${pack.bugs.url}/new`,
+  repoUrl: pack.homepage,
 }
 
 const { start, app, sf } = server({
