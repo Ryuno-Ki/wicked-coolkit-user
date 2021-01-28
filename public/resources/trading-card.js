@@ -1,7 +1,7 @@
 ;(function () {
   const text = "Check out my Wicked Cool Trading Card!"
   const url = `${window.location.protocol}//${window.location.host}${window.location.pathname}`
-  const via = "heroku"
+  const via = "heroku,@salesforcedevs"
   const hashtags = "wickedcoolkit"
   const qs = (obj) =>
     Object.keys(obj)
