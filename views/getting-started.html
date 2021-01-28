@@ -164,7 +164,7 @@
                 Copy/paste this embed code into your website and manage your
                 webring in Salesforce.
               </p>
-              <pre><code id="webring-code"></code></pre>
+              <pre><code id="webring-code" data-cdn="{{cdn}}"></code></pre>
               <button
                 data-clipboard-target="#webring-code"
                 class="button copy-button"
@@ -191,7 +191,7 @@
             <div class="content">
               <h2>Hit counter</h2>
               <p>Copy/paste this embed code into your website.</p>
-              <pre><code id="hit-counter-code"></code></pre>
+              <pre><code id="hit-counter-code" data-cdn="{{cdn}}"></code></pre>
               <button
                 data-clipboard-target="#hit-counter-code"
                 class="button copy-button"
@@ -208,9 +208,6 @@
       </main>
       <footer></footer>
     </div>
-    <script>
-      window.WICKED_COOLKIT={{{jsonData}}};
-    </script>
     <script src="/resources/getting-started{{dotMin}}.js"></script>
   </body>
 </html>

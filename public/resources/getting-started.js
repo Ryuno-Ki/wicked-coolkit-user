@@ -1,19 +1,20 @@
 ;(function () {
   const { host, protocol } = window.location
-  const { cdn } = window.WICKED_COOLKIT
 
-  const generateSnippet = (name) => {
+  const generateSnippet = (id, name) => {
+    const node = document.getElementById(id)
+    const cdn = node.getAttribute("data-cdn")
+
     const tag = name.replace(/[A-Z]/g, (l) => "-" + l).toLowerCase()
     const scriptTag = `<script type="module" async src="${cdn}/${name}.js"></script>`
     const componentTag = `<wck-${tag} host="${host}"></wck-${tag}>`
-    return [scriptTag, componentTag].join("\n")
+    const code = [scriptTag, componentTag].join("\n")
+
+    node.innerText = code
   }
 
-  document.getElementById("hit-counter-code").innerText = generateSnippet(
-    "hitCounter"
-  )
-
-  document.getElementById("webring-code").innerText = generateSnippet("webring")
+  generateSnippet("hit-counter-code", "hitCounter")
+  generateSnippet("webring-code", "webring")
 
   document.querySelectorAll(".close-button").forEach((n) => {
     n.addEventListener("click", () => {
