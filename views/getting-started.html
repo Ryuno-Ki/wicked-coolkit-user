@@ -70,16 +70,16 @@
         <div class="landing-steps">
           <ol>
             <li>
-              <a href="https://developer.salesforce.com/signup">
-                Create a Salesforce developer account
-              </a>
+              <a href="https://developer.salesforce.com/signup" target="_blank" class="external">
+                Create a Salesforce developer account</a
+              >
               <span>
                 Fill out the form and you’ll receive a verification email. Click
                 to verify and set a password.
               </span>
             </li>
             <li>
-              <a href="https://wickedcoolkit.com/install"
+              <a href="https://wickedcoolkit.com/install" target="_blank" class="external"
                 >Deploy Salesforce app</a
               >
               <span>
@@ -87,13 +87,13 @@
               </span>
             </li>
             <li>
-              <a href="/sf/auth">Connect Heroku app to Salesforce app</a>
+              <a href="/sf/auth" target="_blank" class="external">Connect Heroku app to Salesforce app</a>
               <span>When prompted, click “Allow”</span>
             </li>
             <li>
               <a
                 href="{{#if auth}}/sf/setup?page=theme{{else}}#{{/if}}"
-                class="{{#unless auth}}disabled{{/unless}}"
+                class="{{#unless auth}}disabled{{/unless}} external" target="_blank" 
                 >Set your Salesforce theme</a
               >
               <small>(optional, but fun)</small>
@@ -105,7 +105,7 @@
             <li>
               <a
                 href="{{#if auth}}/sf/setup?page=import{{else}}#{{/if}}"
-                class="{{#unless auth}}disabled{{/unless}}"
+                class="{{#unless auth}}disabled{{/unless}} external" target="_blank"
                 >Import stickers CSV</a
               >
               <span>
@@ -120,7 +120,7 @@
               </span>
             </li>
             <li>
-              <a href="/resources/images/app-launcher.gif"
+              <a href="/resources/images/app-launcher.gif" target="_blank" class="external"
                 >Move Wicked Coolkit to the top of your App Launcher</a
               >
               <small>(optional, but helpful)</small>
@@ -144,6 +144,7 @@
               <a
                 href="{{#if auth}}/sf/setup?page=card{{else}}#{{/if}}"
                 class="button {{#unless auth}}disabled{{/unless}}"
+                target="_blank"
               >
                 Complete my card
               </a>
@@ -174,6 +175,7 @@
               <a
                 href="{{#if auth}}/sf/setup?page=webring{{else}}#{{/if}}"
                 class="button {{#unless auth}}disabled{{/unless}}"
+                target="_blank"
               >
                 Manage webring
               </a>

@@ -53,14 +53,16 @@ footer {
   font-size: 90%;
 }
 
-#tweet-button {
+#tweet-button,
+#help-button {
   text-decoration: none;
   color: #1e1e60;
   display: flex;
   align-items: center;
 }
 
-#tweet-button:hover span {
+#tweet-button:hover span,
+#help-button:hover span {
   text-decoration: underline;
 }
 
@@ -108,4 +110,16 @@ footer {
 
 #share-button:hover {
   text-decoration: underline;
+}
+
+#help-button {
+  margin-left: 15px;
+}
+
+#help-button:before {
+  content: "⚙";
+  margin-right: 5px;
+  font-size: 180%;
+  line-height: 0;
+  display: inline-block;
 }

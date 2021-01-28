@@ -54,6 +54,15 @@ img {
   max-width: 100%;
 }
 
+
+a.external:after {
+  content: '↗';
+  margin-left: 5px;
+  display: inline-block;
+  font-weight: normal;
+  /*color: #323029;*/
+}
+
 ol {
   padding: 1em 0;
   list-style-type: decimal;
