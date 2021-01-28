@@ -1,8 +1,8 @@
 {
-  "name": "Heroku Wicked Coolkot",
+  "name": "Heroku Wicked Coolkit",
   "description": "",
-  "website": "https://heroku-wicked-coolkit.herokuapp.com",
-  "repository": "https://github.com/andyet/heroku-wicked-coolkit-user",
+  "website": "https://wickedcoolkit.com",
+  "repository": "https://github.com/fostive/wicked-coolkit-user",
   "buildpacks": [
     {
       "url": "heroku/nodejs"
