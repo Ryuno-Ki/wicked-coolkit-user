@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-<!-- Including screen shots is helpful! They can be pasted or dragged into the text editor. -->
+<!-- Including screenshots is helpful! They can be pasted or dragged into the text editor. -->
 
+**Current behavior**
 What is the current behavior?
------------------------------
 
-What are you expecting?
--------------------------
+**Expected behavior**
+What did you expect to happen?
