@@ -11,7 +11,7 @@ const CDN = `https://unpkg.com/wicked-coolkit@${wckVersion}/dist`
 const data = {
   dotMin: PROD ? ".min" : "",
   cdn: CDN,
-  bugsUrl: `${pack.bugs.url}/new`,
+  bugsUrl: `${pack.bugs.url}/new?assignees=&labels=support&template=help-request.md&title=`,
   repoUrl: pack.homepage,
 }
 

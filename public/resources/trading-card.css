@@ -8,28 +8,54 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
   background-image: linear-gradient(45deg, #79589f, #009edb);
   border-bottom: 2px solid #1e1e60;
   color: #f6f0e2;
+  /*font-size: 90%;*/
+  line-height: 1;
 }
 
 nav a {
-  display: flex;
   text-decoration: none;
   color: inherit;
-  align-items: center;
+  padding: 10px 15px 7px;
 }
 
 nav h1 {
-  padding: 7px 5px 5px 15px;
+  margin-right: auto;
 }
 
-nav a.home {
-  padding: 7px 15px 5px;
+nav .home {
   color: #f6f0e2;
   background-color: #323029;
-  font-size: 90%;
+}
+
+nav .home:hover {
+  background-color: #009edb;
+}
+
+@media screen and (max-width: 580px) {
+  nav {
+    flex-wrap: wrap;
+  }
+  nav h1 {
+    padding: 10px 0 7px;
+    width: 100%;
+    border-bottom: 2px solid #1e1e60;
+    text-align: center;
+  }
+  nav > a {
+    width: 50%;
+    text-align: center
+  }
+  nav .admin {
+    background-color: #79589f;
+  }
+  nav .admin:hover {
+    background-color: #009edb;
+  }
 }
 
 #trading-card {
@@ -53,16 +79,14 @@ footer {
   font-size: 90%;
 }
 
-#tweet-button,
-#help-button {
+#tweet-button {
   text-decoration: none;
   color: #1e1e60;
   display: flex;
   align-items: center;
 }
 
-#tweet-button:hover span,
-#help-button:hover span {
+#tweet-button:hover span {
   text-decoration: underline;
 }
 
@@ -110,16 +134,4 @@ footer {
 
 #share-button:hover {
   text-decoration: underline;
-}
-
-#help-button {
-  margin-left: 15px;
-}
-
-#help-button:before {
-  content: "⚙";
-  margin-right: 5px;
-  font-size: 180%;
-  line-height: 0;
-  display: inline-block;
 }

@@ -15,6 +15,9 @@
   </head>
   <body>
     <div id="main">
+      <p class="banner">
+        Need help? Check out the <a href="{{repoUrl}}">GitHub repo</a> or <a href="{{bugsUrl}}">submit an issue</a>.
+      </p>
       <header>
         <a href="/">
           <svg
@@ -43,94 +46,62 @@
       </header>
 
       <main>
-        {{#if success}}
-        <div class="success message">
-          <span
-            >Your Heroku app has been successfully connected to
-            Salesforce!</span
-          >
-          <button class="close-button" aria-label="Close message">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {{/if}} {{#if error}}
-        <div class="error message">
-          <span
-            >There was an error trying to connect your Heroku app to Salesforce.
-            You can <a href="/sf/auth">try again</a> or report your issue on
-            <a href="{{bugsUrl}}">GitHub</a>.</span
-          >
-          <button class="close-button" aria-label="Close message">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {{/if}}
-        <div class="landing-intro">
-          <p><strong>Welcome to your Wicked Coolkit!</strong></p>
-          <p>Follow these three steps to get started:</p>
-        </div>
-        <div class="landing-steps">
-          <ol>
-            <li>
-              <a href="https://developer.salesforce.com/signup" target="_blank" class="external">
-                Create a Salesforce Developer Edition instance</a
-              >
-              <span>
-                Fill out the form and you’ll receive a verification email. Click
-                to verify and set a password.
-              </span>
-            </li>
-            <li>
-              <a href="https://wickedcoolkit.com/install" target="_blank" class="external"
-                >Deploy Salesforce app</a
-              >
-              <span>
-                Log in with new credentials (if not already logged in).
-              </span>
-            </li>
-            <li>
-              <a href="/sf/auth" target="_blank" class="external">Connect Heroku app to Salesforce app</a>
-              <span>When prompted, click “Allow”</span>
-            </li>
-            <li>
-              <a
-                href="{{#if auth}}/sf/setup?page=theme{{else}}#{{/if}}"
-                class="{{#unless auth}}disabled{{/unless}} external" target="_blank" 
-                >Set your Salesforce theme</a
-              >
-              <small>(optional, but fun)</small>
-              <span>
-                Click on the arrow next to Wicked CoolKit theme and choose
-                Activate.
-              </span>
-            </li>
-            <li>
-              <a
-                href="{{#if auth}}/sf/setup?page=import{{else}}#{{/if}}"
-                class="{{#unless auth}}disabled{{/unless}} external" target="_blank"
-                >Import stickers CSV</a
-              >
-              <span>
-                Click on Launch Wizard! button.<br />
-                Choose Custom objects tab and then Stickers.<br />
-                Choose Add new record.<br />
-                Drag and drop
-                <a href="{{cdn}}/stickers/stickers.csv" download
-                  >this CSV file</a
-                >.<br />
-                Click Next and then Start import.
-              </span>
-            </li>
-            <li>
-              <a href="/resources/images/app-launcher.gif" target="_blank" class="external"
-                >Move Wicked Coolkit to the top of your App Launcher</a
-              >
-              <small>(optional, but helpful)</small>
-            </li>
-          </ol>
-          <p>Now you’re ready to complete your card! 👇</p>
-        </div>
-        <div class="landing-list">
+        <section>
+          {{#if success}}
+          <div class="success message">
+            <span
+              >Your Heroku app has been successfully connected to
+              Salesforce!</span
+            >
+            <button class="close-button" aria-label="Close message">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {{/if}} {{#if error}}
+          <div class="error message">
+            <span
+              >There was an error trying to connect your Heroku app to Salesforce.
+              You can <a href="/sf/auth">try again</a> or report your issue on
+              <a href="{{bugsUrl}}">GitHub</a>.</span
+            >
+            <button class="close-button" aria-label="Close message">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {{/if}}
+          <div class="landing-intro">
+            <p><strong>Welcome to your Wicked Coolkit!</strong></p>
+            <p>Follow these steps to get started:</p>
+          </div>
+          <div class="landing-steps">
+            <ol>
+              <li>
+                <a href="https://developer.salesforce.com/signup" target="_blank" class="external">
+                  Create a (new) free Salesforce Developer Edition instance</a
+                >
+                <span>
+                  You’ll need a new instance (even if you’ve made one before).
+                </span>
+                <span>
+                  Fill out the form and you’ll receive a verification email. Click
+                  to verify and set a password.
+                </span>
+              </li>
+              <li>
+                <a href="https://wickedcoolkit.com/install" target="_blank" class="external"
+                  >Deploy Salesforce app</a
+                >
+                <span>
+                  Log in with new credentials (if not already logged in).
+                </span>
+              </li>
+              <li>
+                <a href="/sf/auth" target="_blank" class="external">Connect Heroku app to Salesforce app</a>
+                <span>When prompted, click “Allow”</span>
+              </li>
+            </ol>
+            <p>Now you’re ready to complete your card! 👇</p>
+          </div>
           <div class="landing-item landing-card">
             <div class="image">
               <img
@@ -152,6 +123,29 @@
               </a>
             </div>
           </div>
+        </section>
+        <div class="landing-steps callout">
+          <h2>💥 Tip! You can customize your Salesforce UI:</h2>
+          <ul>
+            <li>
+              <a
+                href="{{#if auth}}/sf/setup?page=theme{{else}}#{{/if}}"
+                class="{{#unless auth}}disabled{{/unless}} external" target="_blank" 
+                >Set your Salesforce theme</a
+              >
+              <span>
+                Click on the arrow next to Wicked CoolKit theme and choose
+                Activate.
+              </span>
+            </li>
+            <li>
+              <a href="/resources/images/app-launcher.gif" target="_blank" class="external"
+                >Move Wicked Coolkit to the top of your App Launcher</a
+              >
+            </li>
+          </ul>
+        </div>
+        <section>
           <div class="landing-item landing-webring">
             <div class="image">
               <img
@@ -183,6 +177,8 @@
               </a>
             </div>
           </div>
+        </section>
+        <section>
           <div class="landing-item landing-hitcounter">
             <div class="image">
               <img
@@ -204,13 +200,12 @@
               </button>
             </div>
           </div>
-        </div>
-        <p class="footer">
-          Need help? Check out the <a href="{{repoUrl}}">GitHub repo</a> or
-          <a href="{{bugsUrl}}">submit an issue</a>.
-        </p>
+        </section>
       </main>
-      <footer></footer>
+      <footer>
+        <a href="https://wickedcoolkit.com">wickedcoolkit.com</a>
+        <a href="{{repoUrl}}">GitHub</a>
+      </footer>
     </div>
     <script src="/resources/getting-started{{dotMin}}.js"></script>
   </body>

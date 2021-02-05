@@ -19,14 +19,21 @@ header > a {
   line-height: 0;
 }
 
+.banner {
+  padding: 7px 20px 5px;
+  background-image: linear-gradient(45deg, #79589f, #009edb);
+  text-align: center;
+  color: #f6f0e2;
+}
+
+.banner a {
+  color: inherit;
+}
+
 main {
   box-sizing: border-box;
   max-width: 800px;
-  height: calc(100% - 180px);
   margin: 0 auto;
-  padding: 30px;
-  padding-bottom: 3em;
-  background-image: linear-gradient(225deg, transparent 4em, #f6f0e2 4em);
 }
 
 @media screen and (max-width: 840px) {
@@ -35,9 +42,20 @@ main {
   }
 }
 
+main > section {
+  margin-bottom: 35px;
+  padding: 30px;
+  background-color: #f6f0e2;
+}
+
+main > section:first-of-type {
+  background-color: transparent;
+  background-image: linear-gradient(225deg, transparent 4em, #f6f0e2 4em);
+}
+
 h2 {
   margin-bottom: 15px;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 p {
@@ -67,37 +85,51 @@ a.external:after {
   /*color: #323029;*/
 }
 
-ol {
+ol, ul {
   padding: 1em 0;
-  list-style-type: decimal;
-  padding-left: 2em;
   font-weight: bold;
 }
 
-ol li {
+ol {
+  padding-left: 2em;
+  list-style-type: decimal;
+}
+
+ol li,
+ul li {
   margin-bottom: 1em;
 }
 
 ol a,
+ul a,
 p a  {
   color: #009edb;
 }
 
-ol a:hover {
+ol a:hover,
+ul a:hover {
   color: #1e1e60;
 }
 
 ol a.disabled,
-ol a.disabled:hover {
+ol a.disabled:hover
+ul a.disabled,
+ul a.disabled:hover {
   cursor: default;
   pointer-events: none;
   opacity: 0.5;
 }
 
-ol span {
+ol span,
+ul span {
   display: block;
   font-size: 90%;
   font-weight: normal;
+}
+
+ol span:not(:last-child),
+ul span:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 ol li ul {
@@ -205,10 +237,10 @@ pre code {
   margin-bottom: 2em;
 }
 
-.landing-list {
+/*.landing-list {
   display: grid;
-  grid-gap: 30px;
-}
+  grid-gap: 35px;
+}*/
 
 .landing-item {
   display: grid;
@@ -223,12 +255,33 @@ pre code {
 
 .landing-item .image {
   height: 200px;
+  background-color: rgba(255,255,255,.3);
   border: 1px solid #1e1e60;
   display: grid;
   place-content: center;
 }
 
-.footer {
-  margin: 2em 0 0;
+.callout {
+  margin-bottom: 35px;
+  padding: 1em;
+  border: 2px dashed #79589f;
+  color: #f6f0e2;
+}
+
+.callout ul {
+  padding: 0;
+}
+
+.callout ul li:last-child {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-bottom: 35px;
   text-align: center;
+}
+
+footer a {
+  margin: 5px 10px;
+  color: #f6f0e2;
 }
